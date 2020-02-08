@@ -1,32 +1,32 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-//°³ 1¿¡°Ô °ø°İ ¹Ş´Â ½Ã°£À» ¼¾´Ù.
-//°³ 2¿¡°Ô °ø°İ ¹Ş´Â ½Ã°£À» ¼¾´Ù.
-//°³ 1°ú °°Àº ¹æ¹ı
+//ê°œ 1ì—ê²Œ ê³µê²© ë°›ëŠ” ì‹œê°„ì„ ì„¼ë‹¤.
+//ê°œ 2ì—ê²Œ ê³µê²© ë°›ëŠ” ì‹œê°„ì„ ì„¼ë‹¤.
+//ê°œ 1ê³¼ ê°™ì€ ë°©ë²•
 
-public class BJ_2991_¿ÀÀ¯¹Î_200209 {
+public class BJ_2991_ì˜¤ìœ ë¯¼_200209 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int[] DogsPattern = new int[4];		//°³ µÎ ¸¶¸®ÀÇ ÆĞÅÏÀ» ÇÏ³ªÀÇ ¹è¿­¿¡ ÀúÀå
+		int[] DogsPattern = new int[4];		//ê°œ ë‘ ë§ˆë¦¬ì˜ íŒ¨í„´ì„ í•˜ë‚˜ì˜ ë°°ì—´ì— ì €ì¥
 		for (int i = 0; i < DogsPattern.length; i++) {
 			DogsPattern[i] = Integer.parseInt(st.nextToken());
 		}
 		
 		st = new StringTokenizer(br.readLine());
-		int[] menPattern = new int[3];	//»ç¶÷µéÀÌ ¾î¶² ½Ã°£¿¡ ¿À´ÂÁö ÇÏ³ªÀÇ ¹è¿­¿¡ ÀúÀå
+		int[] menPattern = new int[3];	//ì‚¬ëŒë“¤ì´ ì–´ë–¤ ì‹œê°„ì— ì˜¤ëŠ”ì§€ í•˜ë‚˜ì˜ ë°°ì—´ì— ì €ì¥
 		for (int i = 0; i < menPattern.length; i++) {
 			menPattern[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		for (int i = 0; i < menPattern.length; i++) {	//»ç¶÷ ¼ö¸¸Å­ ¹İº¹
-			int cnt = 0;	//ÇÑ »ç¶÷ÀÌ °ø°İ¹Ş´Â ¼ö
-			//°³ 1ÀÌ °ø°İÇÏÁö ¾Ê´Â ½Ã°£¿¡ ¿Ô´ÂÁö Ã¼Å© -> ÂüÀÌ¸é ±×´ë·Î cnt ¹İÈ¯, °ÅÁşÀÌ¸é cnt Áõ°¡ ÈÄ ¹İÈ¯
-			cnt = menPattern[i] % (DogsPattern[0]+DogsPattern[1]) > DogsPattern[0] || menPattern[i] % (DogsPattern[0]+DogsPattern[1]) == 0 ? cnt : ++cnt;
-			//°³ 2°¡ °ø°İÇÏÁö ¾Ê´Â ½Ã°£¿¡ ¿Ô´ÂÁö Ã¼Å© -> ÂüÀÌ¸é ±×´ë·Î cnt ¹İÈ¯, °ÅÁşÀÌ¸é cnt Áõ°¡ ÈÄ ¹İÈ¯
-			cnt = menPattern[i] % (DogsPattern[2]+DogsPattern[3]) > DogsPattern[2] || menPattern[i] % (DogsPattern[2]+DogsPattern[3]) == 0 ? cnt : ++cnt;
+		for (int i = 0; i < menPattern.length; i++) {	//ì‚¬ëŒ ìˆ˜ë§Œí¼ ë°˜ë³µ
+			int cnt = 0;	//í•œ ì‚¬ëŒì´ ê³µê²©ë°›ëŠ” ìˆ˜
+			//ê°œ 1ì´ ê³µê²©í•˜ì§€ ì•ŠëŠ” ì‹œê°„ì— ì™”ëŠ”ì§€ ì²´í¬ -> ì°¸ì´ë©´ ê·¸ëŒ€ë¡œ cnt ë°˜í™˜, ê±°ì§“ì´ë©´ cnt ì¦ê°€ í›„ ë°˜í™˜
+			cnt += menPattern[i] % (DogsPattern[0]+DogsPattern[1]) > DogsPattern[0] || menPattern[i] % (DogsPattern[0]+DogsPattern[1]) == 0 ? 0 : 1;
+			//ê°œ 2ê°€ ê³µê²©í•˜ì§€ ì•ŠëŠ” ì‹œê°„ì— ì™”ëŠ”ì§€ ì²´í¬ -> ì°¸ì´ë©´ ê·¸ëŒ€ë¡œ cnt ë°˜í™˜, ê±°ì§“ì´ë©´ cnt ì¦ê°€ í›„ ë°˜í™˜
+			cnt += menPattern[i] % (DogsPattern[2]+DogsPattern[3]) > DogsPattern[2] || menPattern[i] % (DogsPattern[2]+DogsPattern[3]) == 0 ? 0 : 1;
 			System.out.print(cnt + " ");
 		}
 	}	//end of main
