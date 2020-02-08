@@ -23,9 +23,9 @@ public class BJ_2991_오유민_200209 {
 		
 		for (int i = 0; i < menPattern.length; i++) {	//사람 수만큼 반복
 			int cnt = 0;	//한 사람이 공격받는 수
-			//개 1이 공격하지 않는 시간에 왔는지 체크 -> 참이면 그대로 cnt 반환, 거짓이면 cnt 증가 후 반환
+			//개 1이 공격하지 않는 시간에 왔는지 체크 -> 참이면 0, 거짓이면 1 더하기
 			cnt += menPattern[i] % (DogsPattern[0]+DogsPattern[1]) > DogsPattern[0] || menPattern[i] % (DogsPattern[0]+DogsPattern[1]) == 0 ? 0 : 1;
-			//개 2가 공격하지 않는 시간에 왔는지 체크 -> 참이면 그대로 cnt 반환, 거짓이면 cnt 증가 후 반환
+			//개 2가 공격하지 않는 시간에 왔는지 체크 -> 참이면 0, 거짓이면 1 더하기
 			cnt += menPattern[i] % (DogsPattern[2]+DogsPattern[3]) > DogsPattern[2] || menPattern[i] % (DogsPattern[2]+DogsPattern[3]) == 0 ? 0 : 1;
 			System.out.print(cnt + " ");
 		}
